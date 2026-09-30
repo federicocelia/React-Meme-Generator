@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export default function Main() {
-  const [img, setImg] = useState({
+  const [meme, setMeme] = useState({
     topText: "One does not simply",
     bottomText: "Walk into Mordor",
     imageUrl: "http://i.imgflip.com/1bij.jpg",
@@ -20,7 +20,7 @@ export default function Main() {
   function changeImg() {
     if (!memes.length) return;
     const randomIndex = Math.floor(Math.random() * memes.length);
-    setImg((prev) => {
+    setMeme((prev) => {
       return {
         ...prev,
         imageUrl: memes[randomIndex].url,
@@ -30,7 +30,7 @@ export default function Main() {
 
   function handleChange(event) {
     const { value, name } = event.currentTarget;
-    setImg((prev) => {
+    setMeme((prev) => {
       return {
         ...prev,
         [name]: value,
@@ -63,9 +63,9 @@ export default function Main() {
         <button onClick={changeImg}>Get a new meme image 🖼</button>
       </div>
       <div className="meme">
-        <img src={img.imageUrl} />
-        <span className="top">{img.topText}</span>
-        <span className="bottom">{img.bottomText}</span>
+        <img src={meme.imageUrl} />
+        <span className="top">{meme.topText}</span>
+        <span className="bottom">{meme.bottomText}</span>
       </div>
     </main>
   );
