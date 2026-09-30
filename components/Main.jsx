@@ -7,17 +7,37 @@ export default function Main() {
     imageUrl: "http://i.imgflip.com/1bij.jpg",
   });
 
+  function handleChange(event) {
+    const { value } = event.currentTarget;
+    setImg((prev) => {
+      return {
+        ...prev,
+        topText: value,
+      };
+    });
+  }
+
   return (
     <main>
       <div className="form">
         <label>
           Top Text
-          <input type="text" placeholder="One does not simply" name="topText" />
+          <input
+            type="text"
+            placeholder="One does not simply"
+            name="topText"
+            onChange={handleChange}
+          />
         </label>
 
         <label>
           Bottom Text
-          <input type="text" placeholder="Walk into Mordor" name="bottomText" />
+          <input
+            type="text"
+            placeholder="Walk into Mordor"
+            name="bottomText"
+            // onChange={handleChange}
+          />
         </label>
         <button>Get a new meme image 🖼</button>
       </div>
